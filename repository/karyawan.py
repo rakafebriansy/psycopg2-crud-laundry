@@ -4,8 +4,7 @@ from config import database as db
 
 def create(request:dict) -> bool:
     affected = False
-    sql = f"INSERT INTO paket (jenis, harga) VALUES ('{request['jenis']}', {request['harga']});"
-    print(sql)
+    sql = f"INSERT INTO karyawan (nama, no_telp) VALUES ('{request['nama']}', '{request['no_telp']}');"
     config = db.config()
 
     try:
@@ -20,7 +19,7 @@ def create(request:dict) -> bool:
     finally:
         return affected
 def findAll() -> pandas.DataFrame:
-    sql = "SELECT * FROM paket"
+    sql = "SELECT * FROM karyawan"
     config = db.config()
     try:
         with  psycopg2.connect(**config) as connection:
@@ -37,7 +36,7 @@ def findAll() -> pandas.DataFrame:
         df_paket = pandas.DataFrame(rows_paket, columns=column_names, index=[i+1 for i in range(len(rows_paket))])
         return df_paket
 def findOne(id:str):
-    sql = f"SELECT * FROM paket WHERE id = {id}"
+    sql = f"SELECT * FROM karyawan WHERE id = {id}"
     config = db.config()
     try:
         with  psycopg2.connect(**config) as connection:
@@ -51,8 +50,7 @@ def findOne(id:str):
         return row_karyawan
 def edit(request:dict) -> bool:
     affected = False
-    request['new_value'] = f"\'{request['new_value']}\'" if request['column'] == "jenis" else request['new_value']
-    sql = f"UPDATE paket SET {request['column']} = {request['new_value']}  WHERE id = {request['id']};"
+    sql = f"UPDATE karyawan SET {request['column']} = '{request['new_value']}'  WHERE id = {request['id']};"
     config = db.config()
     try:
         with  psycopg2.connect(**config) as connection:
@@ -65,7 +63,7 @@ def edit(request:dict) -> bool:
     finally:
         return affected
 def delete(id:str) -> bool:
-    sql = f"DELETE FROM paket WHERE id = {id}"
+    sql = f"DELETE FROM karyawan WHERE id = {id}"
     config = db.config()
     try:
         with  psycopg2.connect(**config) as connection:

@@ -1,20 +1,20 @@
 import os
-import repository.paket as repo
+import repository.karyawan as repo
 
-def menuPaket() -> None:
+def menuKaryawan() -> None:
     os.system("cls")
     print("="*10)
-    print("MENU PAKET")
+    print("MENU KARYAWAN")
     print("="*10)
     print("\nAKSI")
-    print("1. Lihat Paket ")
-    print("2. Tambah Paket")
-    print("3. Edit Paket")
-    print("4. Hapus Paket")
+    print("1. Lihat Karyawan ")
+    print("2. Tambah Karyawan")
+    print("3. Edit Karyawan")
+    print("4. Hapus Karyawan")
     aksi = input()
     return aksi
 
-def paket(aksi:str):
+def karyawan(aksi:str):
     match aksi:
         case "1":
             os.system("cls")
@@ -25,18 +25,18 @@ def paket(aksi:str):
         case "2":
             os.system("cls")
             print("TAMBAH DATA\n")
-            jenis = input("Masukkan nama jenis paket: ")
-            harga = input("Masukkan harga paket: ")
+            nama = input("Masukkan nama karyawan: ")
+            no_telp = input("Masukkan nomor telepon karyawan: ")
             request = {
-                'jenis':jenis,
-                'harga':harga
+                'nama':nama,
+                'no_telp':no_telp
                 }
             result = repo.create(request)
             os.system("cls")
             if(result):
-                print("PAKET BERHASIL DITAMBAHKAN!\n")
+                print("KARYAWAN BERHASIL DITAMBAHKAN!\n")
             else:
-                print("PAKET GAGAL DITAMBAHKAN\n")
+                print("KARYAWAN GAGAL DITAMBAHKAN\n")
         case "3":
             os.system("cls")
             print("UBAH DATA\n")
