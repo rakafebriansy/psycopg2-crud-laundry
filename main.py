@@ -12,14 +12,10 @@ def main():
             case "2":
                 print()
             case "3":
-                os.system('cls')
-                paket.setPaket()
-                aksi = input()
+                aksi = paket.setPaket()
                 paket.paket(aksi)
             case "5":
                 break
-
-
 
 if __name__ == "__main__":
     main()

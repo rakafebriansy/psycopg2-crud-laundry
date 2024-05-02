@@ -1,4 +1,7 @@
+import os
+
 def setDashboard()->None:
+    os.system("cls")
     print("="*32)
     print("SELAMAT DATANG DI HAPPY LAUNDRY!")
     print("="*32)
