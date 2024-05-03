@@ -35,4 +35,3 @@ def buatTransaksi() -> bool:
         print("TRANSAKSI BERHASIL DIBUAT!\n")
     else:
         print("TRANSAKSI GAGAL DIBUAT\n")
-    exit()
