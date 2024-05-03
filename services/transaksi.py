@@ -7,7 +7,7 @@ import datetime
 def lihatTransaksi() -> None:
     os.system("cls")
     print("LIHAT TRANSAKSI")
-    df_transaksi = repoKaryawan.findAll()
+    df_transaksi = repoTransaksi.findAll()
     print(df_transaksi)
     input("\nKlik apapun untuk melanjutkan.")
 def buatTransaksi() -> bool:

@@ -19,6 +19,10 @@ def main():
                 karyawan.karyawan(aksi)
             case "0":
                 break
+            case _:
+                os.system("cls")
+                print("Pilihan tidak tersedia!")
+                input("Klik apapun untuk melanjutkan.")
 
 if __name__ == "__main__":
     main()
